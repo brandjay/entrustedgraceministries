@@ -1,0 +1,31 @@
+
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Missionaries List</title>
+</head>
+<body>
+  <h1>Missionaries</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for missionary in missionaries %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{ missionary.image.url }}" class="card-img-top rounded-circle" alt="Image of {{ missionary.first_name }} {{ missionary.last_name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ missionary.first_name }} {{ missionary.last_name }}</h5>
+            <p class="card-text">{{ missionary.bio }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+ 
+</body>
+</html>
+
+{% endblock %}

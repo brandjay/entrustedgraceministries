@@ -9,5 +9,21 @@
     <h1>{{ main.intro }}</h1>
     <p>{{ main.par1 }}</p>
 </div>
+<div style="height: 5vh;">
+
+</div>
+<div class="row">
+    {% for event in events %}
+    <div class="col-sm-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ event.title }}</h5>
+                <p class="card-text">{{ event.event }}</p>
+                <a href="{% url 'pastor_list' %}" class="btn btn-primary-outline">Who do we support?</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}
