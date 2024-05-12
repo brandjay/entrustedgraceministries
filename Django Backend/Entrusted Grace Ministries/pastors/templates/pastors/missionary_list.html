@@ -1,22 +1,26 @@
-
 {% extends "app/layout.html" %}
 
 {% block content %}
 
+<style>
+  body{
+    text-align: center;
+  }
+  img{
+    border-radius: 20px;
+  }
+  .card-img-top {
+  box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1);
+}
+</style>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Missionaries List</title>
-</head>
-<body>
+<div class="container mt-5">
   <h1>Missionaries</h1>
+
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for missionary in missionaries %}
       <div class="col">
-        <div class="card h-100">
-          <img src="{{ missionary.image.url }}" class="card-img-top rounded-circle" alt="Image of {{ missionary.first_name }} {{ missionary.last_name }}">
+        <div class="card shadow-sm">  <img src="{{ missionary.image.url }}" class="card-img-top rounded-circle" alt="Image of {{ missionary.first_name }} {{ missionary.last_name }}">
           <div class="card-body">
             <h5 class="card-title">{{ missionary.first_name }} {{ missionary.last_name }}</h5>
             <p class="card-text">{{ missionary.bio }}</p>
@@ -24,8 +28,7 @@
         </div>
       </div>
     {% endfor %}
- 
-</body>
-</html>
+  </div>
+</div>
 
 {% endblock %}

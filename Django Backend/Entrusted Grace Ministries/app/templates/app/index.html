@@ -2,28 +2,46 @@
 
 {% block content %}
 
+<div class="container-fluid modern-homepage">
 
+  <div class="row hero d-flex align-items-center justify-content-center">
+    <div class=" col-sm-12 text-center">
+      <h1>{{ main.intro }}</h1>
+      <p class="lead">{{ main.par1 }}</p>
+      <a href="{% url 'pastor_list' %}" class="btn btn-primary">Who do we support?</a>
+    </div>
+  </div>
 
-
-<div>
-    <h1>{{ main.intro }}</h1>
-    <p>{{ main.par1 }}</p>
-</div>
-<div style="height: 5vh;">
-
-</div>
-<div class="row">
-    {% for event in events %}
-    <div class="col-sm-12">
-        <div class="card">
-            <div class="card-body">
+  <div class="row spacer"></div>  <div class="row events">
+    <div class="col-md-12">
+      <h2>Upcoming Events</h2>
+      <div class="row">
+        {% for event in events %}
+          <div class="col-md-4 col-sm-6 mb-4"> <div class="card event-card">
+              <div class="card-body">
                 <h5 class="card-title">{{ event.title }}</h5>
                 <p class="card-text">{{ event.event }}</p>
-                <a href="{% url 'pastor_list' %}" class="btn btn-primary-outline">Who do we support?</a>
+              </div>
             </div>
-        </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
-    {% endfor %}
+  </div>
+
+  <div class="row spacer"></div>
+<h2 style="text-align: center;">Todays Quote</h2>
+  <div class="row">
+    <div class="col-md-12 col-sm-12 offset-md-2">
+      <div class="card shadow-sm">  <div class="card-body">
+          <em class="quote-text">{{ quote.message }}</em>
+          <h3 class="quote-author">{{ quote.author }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
 </div>
 
 {% endblock %}

@@ -15,5 +15,9 @@ class Events (models.Model):
     title = models.CharField(max_length=100)
     event = models.TextField()
 
+
+class Quote (models.Model):
+    message = models.TextField()
+    author = models.CharField(max_length=100)
     
     
